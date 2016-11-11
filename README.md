@@ -1,6 +1,6 @@
 # IS-2545-Deliverable-4
 
-Firstly, I clicked some grey buttons and ran the program continuously. The issue was coming out in the __<h3>convertToInt()</h3>__ function since it takes the most CPU time. I modified it by deleting for loop. I assigned a string builder and appended a character array with 1,000 elements where I replaced empty value to zero. 
+Firstly, I clicked some grey buttons and ran the program continuously. The issue was coming out in the __convertToInt()__ function since it takes the most CPU time. I modified it by deleting for loop. I assigned a string builder and appended a character array with 1,000 elements where I replaced empty value to zero. 
 
 Then then problem fixed when I ran it for the second time. However, the new issue was coming out in the __runContinuous()__ function. I noticed there was the loop for assigning _r. It ran 10000 times in the loop. However, _r was reassigned to the original value after the loop. Therefore, the loop is unnecessary and I deleted it. In addition, there were multiple treads in the sleep condition, which means they took up to much CPU time. I deleted that code also. The bug was also fixed. 
 
