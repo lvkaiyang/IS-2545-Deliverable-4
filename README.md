@@ -9,7 +9,7 @@ The third problem was coming out in the constructor of Cell(). I think there is 
 After the third problem was fixed, __convertToInt()__ function took the most CPU time again so I checked the method again. This time I found that the purpose of the method is quite simple. All we need to do is just return the integer value which is the parameter of this method. We do not even have to assign a string builder and append 1,000 zeros before we append the parameter. The problem fixed and it should not be the trouble in the program anymore.
 
 I have tried my best to test the performance of running program. Then I focused on the other performing such as clicking write button. Originally, clicking write button would take some time to get the file written. After checking VisualVM, I found that the issue was occurring in __Cell.toString()__ method. There was a loop which is run 10,000 times once the method is called. I noticed that toReturn value was assigned constantly. However, after the loop, the method just takes a substring of toReturn, which is just the first character. Therefore, no matter how many times the loop would run, the useful value is just the original toReturn value and I deleted the loop. The problem solved.
-
+# 
 Firstly, I ran the program, the issue was coming out in the convertToInt() function
 
 ![alt tag](https://github.com/lvkaiyang/IS-2545-Deliverable-4/blob/master/1.png)
