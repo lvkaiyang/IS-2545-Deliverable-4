@@ -10,4 +10,18 @@ After the third problem was fixed, convertToInt() function took the most CPU tim
 
 I have tried my best to test the performance of running program. Then I focused on the other performing such as clicking write button. Originally, clicking write button would take some time to get the file written. After checking VisualVM, I found that the issue was occurring in Cell.toString() method. There was a loop which is run 10,000 times once the method is called. I noticed that toReturn value was assigned constantly. However, after the loop, the method just takes a substring of toReturn, which is just the first character. Therefore, no matter how many times the loop would run, the useful value is just the original toReturn value and I deleted the loop. The problem solved.
 
-![alt tag](https://raw.githubusercontent.com/lvkaiyang/IS-2545-Deliverable-4/to/.png)
+Firstly, I ran the program, the issue was coming out in the convertToInt() function
+
+![alt tag](https://github.com/lvkaiyang/IS-2545-Deliverable-4/blob/master/1.png)
+
+After refactoring
+
+![alt tag](https://github.com/lvkaiyang/IS-2545-Deliverable-4/blob/master/2.png)
+
+The issue occurring in the Cell.toString() method
+
+![alt tag](https://github.com/lvkaiyang/IS-2545-Deliverable-4/blob/master/3.jpg)
+
+After refactoring
+
+![alt tag](https://github.com/lvkaiyang/IS-2545-Deliverable-4/blob/master/4.jpg)
